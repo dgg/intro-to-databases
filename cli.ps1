@@ -1,0 +1,1 @@
+docker run -it --link some-mongo --rm mongo:4 mongo --host some-mongo
