@@ -1,0 +1,14 @@
+{
+  "name": "intro-mongodb",
+  "version": "1.0.0",
+  "description": "Intro to Databases: MongoDb",
+  "main": "index.js",
+  "scripts": {
+    "run": "node index.js"
+  },
+  "author": "Daniel González García",
+  "license": "MIT",
+  "dependencies": {
+    "mongodb": "^3.1.3"
+  }
+}

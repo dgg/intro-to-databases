@@ -1,0 +1,114 @@
+{
+    "_id" : 18877,
+    "master" : 0,
+    "specifier" : "onetime",
+    "name": "test",
+    "dayOfMonth" : 20,
+	"description" : "test",
+	"lastModified" : "2018-07-02T08:10:00.000Z",
+	"postProcessing" : {
+		"mode" : "oneLinePrPart",
+		"outputSpecifier" : {
+			"addHeaderToReport" : true,
+			"addressObjName" : "billing",
+			"colSeparator" : ";",
+			"columns" : [
+				{
+					"addr" : {
+						"propName" : "name1"
+					},
+					"colName" : "Customer name",
+					"type" : "CustomerName"
+				},
+				{
+					"colName" : "Report date",
+					"datatype" : "date",
+					"format" : "D.M.YY",
+					"type" : "Date",
+					"value" : "now"
+				},
+				{
+					"colName" : "Date of reading",
+					"datatype" : "date",
+					"format" : "D.M.YYYY HH:mm",
+					"property" : "ts",
+					"srcName" : "Heat",
+					"type" : "MeterReadingsDate"
+				},
+				{
+					"colName" : "Energy",
+					"datatype" : "number",
+					"decimals" : 2,
+					"specifier" : {
+						"get" : "last",
+						"name" : "Heat",
+						"unit" : "",
+						"vars" : [
+							{
+								"name" : "MBHeatVal_1",
+								"specifier" : "OPC"
+							},
+							{
+								"name" : "EnergyMeterData_1 AccEnergy1",
+								"specifier" : "OPC"
+							},
+							{
+								"group" : "Energy Meter 1",
+								"name" : "Accumulated Energy",
+								"specifier" : "ECL7"
+							}
+						]
+					},
+					"srcName" : "Heat",
+					"supportOf" : [
+						"Tarif3",
+						"Date of reading"
+					],
+					"type" : "MeterEnergy"
+				}
+			],
+			"decimalSeparator" : ",",
+			"encoding" : "utf8",
+			"fileType" : "csv",
+			"outputFullFileName" : "/ $YYYY$MM$dd yearTest.csv",
+			"rowSeparator" : "\r\n",
+			"storeOutput" : true,
+			"typedFileName" : "yearTest",
+			"writeOutputFile" : true
+		}
+	},
+	"runOnLoad" : true,
+	"schedule" : "none",
+	"scope" : "*",
+	"time" : {
+		"autoReduce" : true,
+		"sliceSize" : "month",
+		"timeZone" : "Europe/Ljubljana",
+		"when" : "currentyear"
+	},
+	"userid" : 647,
+	"username" : "admin",
+	"uuid" : "cd52f0c7-b435-4862-ba62-f99d35320bd8",
+	"varSpecifiers" : [
+		{
+			"get" : "last",
+			"name" : "Heat",
+			"unit" : "",
+			"vars" : [
+				{
+					"name" : "MBHeatVal_1",
+					"specifier" : "OPC"
+				},
+				{
+					"name" : "EnergyMeterData_1 AccEnergy1",
+					"specifier" : "OPC"
+				},
+				{
+					"group" : "Energy Meter 1",
+					"name" : "Accumulated Energy",
+					"specifier" : "ECL7"
+				}
+			]
+		}
+	]
+}
