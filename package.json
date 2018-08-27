@@ -1,0 +1,11 @@
+{
+  "name": "intro-sqlite",
+  "version": "1.0.0",
+  "description": "Intro to Databases: SQLite",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Daniel González García",
+  "license": "MIT"
+}
