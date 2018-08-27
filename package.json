@@ -7,5 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Daniel González García",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "sqlite": "^3.0.0"
+  }
 }
