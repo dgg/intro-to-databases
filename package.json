@@ -4,8 +4,11 @@
   "description": "Intro to Databases: PostgreSQL",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Daniel González García",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "db-migrate": "^0.11.1",
+    "db-migrate-pg": "^0.4.0"
+  }
 }
