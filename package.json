@@ -3,12 +3,12 @@
   "version": "1.0.0",
   "description": "Intro to Databases: PostgreSQL",
   "main": "index.js",
-  "scripts": {
-  },
+  "scripts": {},
   "author": "Daniel González García",
   "license": "MIT",
   "dependencies": {
     "db-migrate": "^0.11.1",
-    "db-migrate-pg": "^0.4.0"
+    "db-migrate-pg": "^0.4.0",
+    "pg": "^7.4.3"
   }
 }
