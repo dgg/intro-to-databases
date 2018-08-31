@@ -25,3 +25,7 @@ FROM "Student" AS s
 		ON i."Id" = c."Instructor_Id"
 WHERE
 	i."FirstName" = 'Jane'
+
+/* CLEAR school */
+DELETE FROM "Department";
+DELETE FROM "Student";
