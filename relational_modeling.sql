@@ -48,7 +48,7 @@ CREATE TABLE "Student_Course" (
 );
 
 -- A course is taught by only one instructor, but one instructor can teach many courses (N:1)
-ALTER TABLE "Course" ADD COLUMN "Instructor_Id" INT NOT NULL REFERENCES "Instructor"("Id") ON DELETE CASCADE;
+ALTER TABLE "Course" ADD COLUMN "Instructor_Id" INT NOT NULL REFERENCES "Instructor"("Id") ON DELETE NO ACTION;
 
 -- A department has only one head, and the head of deparment can only be such of one department (1:1)
 /* 
