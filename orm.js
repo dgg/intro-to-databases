@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 
-const sequelize = new Sequelize('school', 'postgres', '1234', {
+const sequelize = new Sequelize('postgres', 'postgres', '1234', {
     dialect: 'postgres',
     host: "localhost",
     port: 5432,
@@ -13,24 +13,23 @@ const sequelize = new Sequelize('school', 'postgres', '1234', {
 
 (async () => {
     // another client for raw queries
-    //let result = await sequelize.query('SELECT "Id", "Name", "Credits" FROM "Course"')
-    //console.log('query results:', result[0])
+    let result = await sequelize.query('SELECT "Id", "Name", "Credits" FROM "Course"')
+    console.log('query results:', result[0])
 
     let { Department, Instructor, Course, Student } = defineModel(sequelize)
 
-    /*let departments = await Department.findAll()
-    //console.log('All departments', onlyData(departments))
+    let departments = await Department.findAll()
+    console.log('All departments', onlyData(departments))
 
     // 1: N association
     let instructorsAndDepartments = await Instructor.findAll(
         { include: [{ model: Department }] })
-    //console.log('All instructors (with departments)', onlyData(instructorsAndDepartments))
+    console.log('All instructors (with departments)', onlyData(instructorsAndDepartments))
 
     // n:m association
     let aStudentAndItsCourses = await Student.findOne({ include: [{ model: Course }] })
-    //console.log('a student and its courses', onlyData(aStudentAndItsCourses))
+    console.log('a student and its courses', onlyData(aStudentAndItsCourses))
     
-
     let scienceTeachers = await Instructor.findAll({
         attributes: ['id', 'firstName', 'lastName'],
         include: [{
@@ -38,15 +37,7 @@ const sequelize = new Sequelize('school', 'postgres', '1234', {
             where: { name: 'Science' }
         }]
     })
-    console.log('science teachers', onlyData(scienceTeachers))*/
-
-    let janePlus = await Instructor.findAll({
-        where : {firstName : 'Jane'},
-        include : [ Course, Student ]
-    })
-    console.log('science teachers', onlyData(janePlus))
-
-
+    console.log('science teachers', onlyData(scienceTeachers))
 })()
     .finally(async () => {
         try {
