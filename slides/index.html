@@ -1,0 +1,295 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>reveal.js</title>
+
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/dgg.css">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/nord.css">
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<h1 class="r-fit-text">Brief Enough...</h1>
+				<h1 class="r-fit-text">...Intro to Databases</h1>
+				<h2>From a Developer Perspective</h2>
+			</section>
+			<section>
+				<section>
+					<h2>What we are seeing</h2>
+					<ul>
+						<li class="fragment">What</li>
+						<li class="fragment">Types of Databases</li>
+						<li class="fragment">The CAP Theorem</li>
+						<li class="fragment">ACID</li>
+						<li class="fragment">
+							Getting Practical
+							<ul>
+								<li>Relational Databases</li>
+								<li>Key-Value Stores</li>
+								<li>Document Databases</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h2>What we are not</h2>
+					<p class="fragment">Data-modeling in depth</p>
+					<p class="fragment">Scalability/High Availability</p>
+					<p class="fragment">Pretty much everything, just scratching a very wide surface</p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>What is a Database</h2>
+					<p>Organized collection of data to be accessed electronically</p>
+					<p>[Used to...] Store, manage and retrieve information</p>
+				</section>
+				<section>
+					<h2>Why a Database</h2>
+					<p class="fragment">A certain degree of structure is sane</p>
+					<p class="fragment">Data survival of process termination</p>
+					<p class="fragment">Processing records inside a file is not something our customers should pay for
+					</p>
+					<p class="fragment">Excel can only take you so far 😉</p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>Types of Databases</h2>
+					<p class="fragment">Literally dozens of ways to categorize databases</p>
+					<p class="fragment">Precisely: <code>dozens + n</code></p>
+				</section>
+				<section>
+					<h2>By Data Model</h2>
+					<div class="r-hstack">
+						<ul class="fragment">
+							<li><b>Relational databases</b></li>
+							<li><b>Document databases</b></li>
+							<li><b>Key-Value stores</b></li>
+							<li><b>Time-Series databases</b></li>
+							<li><b>Event stores</b></li>
+							<li><b>Search engines</b></li>
+							<li><i>Graph databases</i></li>
+							<li><i>Object databases</i></li>
+							<li><i>Data warehouses</i></li>
+						</ul>
+						<ul class="fragment" style="margin-left: 5em;">
+							<li>Big-Table databases</li>
+							<li>XML databases</li>
+							<li>Blockchains</li>
+							<li>...</li>
+							<li>...</li>
+							<li>...</li>
+							<li>...</li>
+						</ul>
+					</div>
+				</section>
+				<section>
+					<h2>By Storage Type</h2>
+					<ul>
+						<li class="fragment">In-memory databases</li>
+						<li class="fragment">In-process databases
+							<ul>
+								<li>persistent</li>
+								<li>not-persistent</li>
+							</ul>
+						</li>
+						<li class="fragment">Distributed databases</li>
+					</ul>
+				</section>
+				<section>
+					<h2>According to CAP theorem</h2>
+					<ul>
+						<li class="fragment">CP</li>
+						<li class="fragment">AP</li>
+						<li class="fragment">CA</li>
+					</ul>
+					<aside class="notes">
+						C: consistency -> everyone sees the same data at the same time
+						A: availability -> every request can be fulfilled
+						P: partitioning -> system can function despute partial failures and lost messages
+
+						CP: failure -> missing data
+						AP: failure -> potentially outdated data
+						CA: challenged scalability
+					</aside>
+				</section>
+			</section>
+			<section data-background="#dddddd">
+				<h1>That's cute, but...</h1>
+			</section>
+			<section>
+				<h2>CAP theorem</h2>
+				<div class="r-hstack">
+					<div>
+						<p>A distributed computer system cannot guarantee all of:</p>
+						<ul>
+							<li><b>C</b>onsistency</li>
+							<li><b>A</b>vailability</li>
+							<li><b>P</b>artition Tolerance</li>
+						</ul>
+						<p>Eric Brewer ~2000</p>
+						<p>Choose between CAP, AP or CP</p>
+					</div>
+					<div>
+						<img src="assets/cap-theorem.png" alt="CAP" />
+					</div>
+				</div>
+				<aside class="notes">
+					Introduce eventual consistency
+				</aside>
+			</section>
+			<section>
+				<section>
+					<h2>ACID</h2>
+					<div class="r-hstack">
+						<div>
+							<p>Ol-skool acronym for</p>
+							<ul>
+								<li><b>A</b>tomicity</li>
+								<li><b>C</b>onsistency</li>
+								<li><b>I</b>solation</li>
+								<li><b>D</b>urability</li>
+							</ul>
+
+						</div>
+						<div>
+							<img src="assets/acid.gif" alt="Transaction Workflow" />
+						</div>
+					</div>
+					<p>DB operations satisfying ACID are considered a <i>logical single operation</i> and called a
+						<i>transaction</i>
+					</p>
+					<p>Choose between CAP, AP or CP</p>
+					<aside class="notes">
+						A: succeeds or fails completely. If failure in between, nothing is left half-done
+						C: a transaction brings data from one valid state to another valid state. All invariants
+						preserved. Tx cannot leave incorrect data. Data incorrection will abort the tx
+						I: concurrency as if tx executed secuentially. Effects of ongoing tx are not visible to other tx
+						or the "real world"
+						D: Once commited, the state remains changed
+					</aside>
+				</section>
+				<section>
+					<h2>ACID is not</h2>
+					<div class="r-stack">
+						<div class="fragment fade-in-then-out">
+							<p>Dirty Read</p>
+							<img src="assets/dirty-read.gif" alt="Dirty Read" />
+						</div>
+						<div class="fragment fade-in-then-out">
+							<p>Non-repeteable Read</p>
+							<img src="assets/non-repeatable-read.gif" alt="Non-repeteable Read" />
+						</div>
+						<div class="fragment fade-in-then-out">
+							<p>Phatom Read</p>
+							<img src="assets/phantom-read.gif" alt="Phatom Read" />
+						</div>
+					</div>
+					<aside class="notes">
+						DR: a tx reads intermediate data from another tx before rollback
+						NRR: a tx reads an intermediate data from another tx that will be changed and then commited
+						PR: a tx uses a set of data which will be changed by another tx, using stale data
+					</aside>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>Relational Databases</h2>
+					<div class="fragment">
+						<p>Takes ground over sound relational algebra</p>
+						<p>Data modeled as (optionally related) collection of typed (schema) rows inside tables and
+							accessed using relational operators</p>
+						<p>Classic modelling (data normalization) takes nature of data into account to optimize
+							integrity and minimize repetition</p>
+					</div>
+					<hr class="fragment" />
+					<div class="fragment">
+						<p>Good for well-defined problems with known data structure that have "modest" scalability
+							needs</p>
+						<p>Object-Relational impedance mismatch</p>
+						<p>Cons: work against mode common scenarios</p>
+					</div>
+				</section>
+				<section>
+					<h1>SQLLite</h1>
+				</section>
+				<section>
+					<h1>CockroachDB</h1>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>Key-Value Stores</h2>
+					<div class="fragment">
+						<p>Very simple ⇒ Very fast</p>
+						<p>Unstructured data records identified by primary key</p>
+						<p>"Easy" to wide-scale</p>
+					</div>
+					<hr class="fragment" />
+					<div class="fragment">
+						<p>Good for lumps of relatively non-crucial information to be accessed quickly</p>
+						<ul>
+							<li>Session information</li>
+							<li>Caches</li>
+						</ul>
+					</div>
+
+				</section>
+				<section>
+					<h1>Redis</h1>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>Document Databases</h2>
+					<div class="fragment">
+						<p>Add a new paradigm: a document ⇒ a new way of modelling data</p>
+						<p>Document is semi-structured data identoified by a key<br/>The database <i>understands</i> the document</p>
+						<p>Fast and scalable</p>
+					</div>
+					<hr class="fragment" />
+					<div class="fragment">
+						<p>Great for complex data structures that require medium-complex querying</p>
+						<p>Embrace application-specific schema</p>
+						<p>Tolerate eventual consistency</p>
+					</div>
+				</section>
+				<section>
+					<h1>RavenDB</h1>
+				</section>
+				<section>
+					<h1>MongoDB</h1>
+				</section>
+			</section>
+		</div>
+	</div>
+
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script src="plugin/zoom/zoom.js"></script>
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			hash: true,
+
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealHighlight, RevealNotes, RevealZoom]
+		});
+	</script>
+</body>
+
+</html>
