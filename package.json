@@ -4,11 +4,12 @@
   "description": "Intro to Databases: SQLite",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.mjs"
   },
   "author": "Daniel González García",
   "license": "MIT",
   "dependencies": {
-    "sqlite": "^3.0.0"
+    "sqlite": "4.1.2",
+    "sqlite3": "5.1.4"
   }
 }
