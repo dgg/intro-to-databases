@@ -2,14 +2,14 @@
   "name": "intro-redis",
   "version": "1.0.0",
   "description": "Intro to Databases: Redis",
-  "main": "index.js",
+  "main": "index.mjs",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.mjs"
   },
   "author": "Daniel González García",
   "license": "MIT",
   "dependencies": {
-    "flat": "^4.1.0",
-    "redis": "^2.8.0"
+    "flat": "5.0.2",
+    "redis": "4.5.1"
   }
 }

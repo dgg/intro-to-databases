@@ -1,0 +1,34 @@
+{
+    "id": 1,
+    "name": "normal basket",
+    "owner": "7c872647-f804-48d1-9386-4846c5d595bb",
+    "lines": [
+        {
+            "catalogId": "TOYS",
+            "sku": "a",
+            "url": "//amazon.com/products/toys/barbie",
+            "quantity": 39,
+            "unitPrice": {
+                "value": 759,
+                "currency": "DKK"
+            }
+        }
+    ],
+    "delivery": {
+        "name": "me",
+        "line1": "Tirsbæk Søvej 63",
+        "line2": "something else",
+        "postalCode": "7120",
+        "city": "Vejle Ø",
+        "region": "",
+        "countryCode": "DK"
+    },
+    "billing": {
+        "name": "me",
+        "line1": "Tirsbæk Søvej 63",
+        "postalCode": "7120",
+        "city": "Vejle Ø",
+        "region": "",
+        "countryCode": "DK"
+    }
+}
