@@ -1,0 +1,11 @@
+services:
+  mongodb:
+    image: mongo:6.0.3-focal
+    ports:
+      - 27017:27017
+    environment:
+      - MONGO_INITDB_DATABASE=test
+    healthcheck:
+      test: test $$(mongosh --eval 'db.runCommand("ping").ok' --quiet) -eq 1
+      interval: 28s
+      start_period: 30s
