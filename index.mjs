@@ -1,27 +1,30 @@
-import { MongoClient } from "mongodb"
+import { DocumentStore, QueryData } from "ravendb"
 
 import { inspect } from "node:util"
 import doc from "./18877.json" assert {type: "json"}
 
-const client = await MongoClient.connect("mongodb://localhost:27017/test")
-client
-    .on("connectionReady", () => console.debug("connected..."))
-    .on("serverClosed", () => console.debug("...bye"))
+const store = new DocumentStore("http://localhost:8080", "test").initialize()
 
-const reports = client.db().collection("reports")
-await reports.deleteMany({})
+const session = store.openSession()
 
-await reports.insertOne(doc)
+const id = `reports/${doc.id}`
+await session.store(doc, id)
 
-const options = {
-    projection: { name: 1, specifier: 1, lastModified: 1 }
-}
-const allReports = await reports.find({}, options).toArray()
-console.info("all", allReports)
+const one = await session.load(id)
+console.info("ONE", inspect(one, { colors: true, depth: 10 }))
 
-const single = {
-    _id: 18877
-}
-const oneReport = await reports.findOne(single)
-console.info("one", inspect(oneReport, { colors: true, depth: 10 }))
-await client.close()
+const all = await session
+    .query({ collection: "@empty" })
+    .all()
+console.info("ALL", inspect(all, { colors: true, depth: 10 }))
+
+const data = new QueryData(["name", "postProcessing.mode"], ["name", "mode"])
+const partial = await session
+    .query({ collection: "@empty" })
+    .whereEquals("name", "test")
+    .selectFields(data)
+    .first()
+console.info("PARTIAL", inspect(partial, { colors: true, depth: 10 }))
+await session.saveChanges()
+
+store.dispose()

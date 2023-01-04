@@ -1,7 +1,7 @@
 {
-  "name": "intro-mongodb",
+  "name": "intro-ravendb",
   "version": "1.0.0",
-  "description": "Intro to Databases: MongoDb",
+  "description": "Intro to Databases: RavenDb",
   "main": "index.mjs",
   "scripts": {
     "start": "node index.mjs"
@@ -9,6 +9,6 @@
   "author": "Daniel González García",
   "license": "MIT",
   "dependencies": {
-    "mongodb": "4.13.0"
+    "ravendb": "5.2.7"
   }
 }

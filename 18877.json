@@ -1,5 +1,5 @@
 {
-    "_id" : 18877,
+    "id" : 18877,
     "master" : 0,
     "specifier" : "onetime",
     "name": "test",

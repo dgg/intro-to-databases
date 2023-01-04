@@ -1,11 +1,9 @@
 services:
-  mongodb:
-    image: mongo:6.0.3-focal
+  raven:
+    image: ravendb/ravendb:5.4-ubuntu-latest
     ports:
-      - 27017:27017
+      - 8080:8080
     environment:
-      - MONGO_INITDB_DATABASE=test
-    healthcheck:
-      test: test $$(mongosh --eval 'db.runCommand("ping").ok' --quiet) -eq 1
-      interval: 28s
-      start_period: 30s
+      - RAVEN_Setup_Mode=None
+      - RAVEN_Security_UnsecuredAccessAllowed=PrivateNetwork
+      - RAVEN_ARGS=-l
