@@ -139,7 +139,7 @@
 							<li><b>P</b>artition Tolerance</li>
 						</ul>
 						<p>Eric Brewer ~2000</p>
-						<p>Choose between CAP, AP or CP</p>
+						<p>Choose between CA, AP or CP</p>
 					</div>
 					<div>
 						<img src="assets/cap-theorem.png" alt="CAP" />
@@ -170,7 +170,6 @@
 					<p>DB operations satisfying ACID are considered a <i>logical single operation</i> and called a
 						<i>transaction</i>
 					</p>
-					<p>Choose between CAP, AP or CP</p>
 					<aside class="notes">
 						A: succeeds or fails completely. If failure in between, nothing is left half-done
 						C: a transaction brings data from one valid state to another valid state. All invariants
@@ -192,7 +191,7 @@
 							<img src="assets/non-repeatable-read.gif" alt="Non-repeteable Read" />
 						</div>
 						<div class="fragment fade-in-then-out">
-							<p>Phatom Read</p>
+							<p>Phantom Read</p>
 							<img src="assets/phantom-read.gif" alt="Phatom Read" />
 						</div>
 					</div>
@@ -207,7 +206,7 @@
 				<section>
 					<h2>Relational Databases</h2>
 					<div class="fragment">
-						<p>Takes ground over sound relational algebra</p>
+						<p>Take ground over sound relational algebra</p>
 						<p>Data modeled as (optionally related) collection of typed (schema) rows inside tables and
 							accessed using relational operators</p>
 						<p>Classic modelling (data normalization) takes nature of data into account to optimize
@@ -264,9 +263,6 @@
 						<p>Embrace application-specific schema</p>
 						<p>Tolerate eventual consistency</p>
 					</div>
-				</section>
-				<section>
-					<h1>RavenDB</h1>
 				</section>
 				<section>
 					<h1>MongoDB</h1>
