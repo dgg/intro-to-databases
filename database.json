@@ -1,0 +1,9 @@
+{
+    "dev" :{
+        "driver": "pg",
+        "user": "root",
+        "host": "localhost",
+        "port": 26257,
+        "database": "school"
+    }
+}

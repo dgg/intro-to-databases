@@ -1,0 +1,30 @@
+{
+  "name": "intro-to-databases",
+  "version": "1.0.0",
+  "description": "[Presentation](https://dgg.github.io/intro-to-databases/slides) and code samples for a shallow dive into databases geared towards not-so-experienced developers with light training on database systems or data modelling.",
+  "main": "index.js",
+  "scripts": {
+    "check": "db-migrate check -e dev",
+    "up": "db-migrate up -e dev",
+    "insert": "node raw_insert.mjs",
+    "query": "node raw_queries.mjs",
+    "orm": "node orm.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dgg/intro-to-databases.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dgg/intro-to-databases/issues"
+  },
+  "homepage": "https://github.com/dgg/intro-to-databases#readme",
+  "dependencies": {
+    "db-migrate": "0.11.13",
+    "db-migrate-pg": "1.2.2",
+    "pg": "8.9.0",
+    "sequelize": "6.28.0"
+  }
+}

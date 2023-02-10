@@ -1,0 +1,40 @@
+{
+    "science": {
+        "name": "Science",
+        "location": "Building A, 2nd floor"
+    },
+    "john": {
+        "firstName": "John",
+        "lastName": "Doe",
+        "contactPhone": "+45 12 34 45 67"
+    },
+    "jane": {
+        "firstName": "Jane",
+        "lastName": "Doe",
+        "contactPhone": "+45 12 34 45 67"
+    },
+    "mark": {
+        "firstName": "Mark",
+        "lastName": "Lenders"
+    },
+    "oliver": {
+        "firstName": "Oliver",
+        "lastName": "Atom"
+    },
+    "benji": {
+        "firstName": "Benjamin",
+        "lastName": "Price"
+    },
+    "bruce": {
+        "firstName": "Bruce",
+        "lastName": "Harper"
+    },
+    "math": {
+        "name": "Math",
+        "credits": 200
+    },
+    "biology": {
+        "name": "Biology",
+        "credits": 150
+    }
+}
