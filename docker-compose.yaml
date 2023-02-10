@@ -1,6 +1,6 @@
 services:
   mongodb:
-    image: mongo:6.0.3-focal
+    image: mongo:6.0.4-jammy
     ports:
       - 27017:27017
     environment:
