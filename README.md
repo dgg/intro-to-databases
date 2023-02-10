@@ -4,9 +4,8 @@
 
 Each database sample code is hosted in a different branch:
 
-* [SQLite](//github.com/dgg/intro-to-databases/tree/sqlite)
 * [CockroachDB](//github.com/dgg/intro-to-databases/tree/cockroach)
+* [SQLite](//github.com/dgg/intro-to-databases/tree/sqlite)
 * [REDIS](//github.com/dgg/intro-to-databases/tree/redis)
-* [RavenDB](//github.com/dgg/intro-to-databases/tree/raven)
 * [MongoDB](//github.com/dgg/intro-to-databases/tree/mongo)
-* [PostgreSQL](//github.com/dgg/intro-to-databases/tree/postgres)
+* [InfluxDB](//github.com/dgg/intro-to-databases/tree/influx)
