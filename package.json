@@ -4,12 +4,13 @@
   "description": "Intro to Databases: Redis",
   "main": "index.mjs",
   "scripts": {
-    "start": "node index.mjs"
+    "start": "node index.mjs",
+    "json": "node index.json.mjs"
   },
   "author": "Daniel González García",
   "license": "MIT",
   "dependencies": {
     "flat": "5.0.2",
-    "redis": "4.5.1"
+    "redis": "4.6.4"
   }
 }
