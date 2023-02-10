@@ -1,0 +1,24 @@
+{
+  "name": "intro-to-databases",
+  "version": "1.0.0",
+  "description": "Intro to Databases: InfluxDB",
+  "main": "index.mjs",
+  "dependencies": {
+    "@influxdata/influxdb-client": "1.33.1",
+    "asciichart": "1.5.25",
+    "ervy": "1.0.7"
+  },
+  "scripts": {
+    "insert": "node insert.mjs",
+    "read": "node read.mjs",
+    "plot": "node plot.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dgg/intro-to-databases.git"
+  },
+  "keywords": [],
+  "author": "Daniel González García",
+  "license": "MIT",
+  "homepage": "https://github.com/dgg/intro-to-databases#readme"
+}
