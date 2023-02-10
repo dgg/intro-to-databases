@@ -1,11 +1,15 @@
 import sqlite from "sqlite3"
 import { open } from "sqlite"
 
+// import { existsSync, mkdirSync } from "node:fs"
+
 process
     .on("uncaughtException", e => console.error("UNCAUGHT", e))
     .on("unhandledRejection", e => console.error("UNHANDLED", e))
 
 const db = await open({ filename: ":memory:", driver: sqlite.Database })
+/*if (!existsSync("./data")) { mkdirSync("./data") }
+const db = await open({ filename: "./data/example.db", driver: sqlite.Database })*/
 
 // DDL
 await db.run("CREATE TABLE tbl (k INTEGER PRIMARY KEY ASC, name TEXT)")
